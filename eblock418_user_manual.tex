@@ -11,10 +11,12 @@
 \usepackage[most]{tcolorbox}
 \usepackage{float}
 \usepackage{rotating}
+\usepackage{adjustbox}
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{capt-of}
 \usepackage{xltabular}
 \usepackage{booktabs}
 \usepackage{enumitem}
@@ -528,19 +530,20 @@ Clean by a brush or cotton cloth. \\
 
 \begin{figure}[H]
     \centering
-    % 左侧图片
-    \begin{minipage}[b]{0.48\textwidth}
+    % 第一张子图
+    \begin{minipage}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{4.1Pipe Installation.png}
+        % 设定统一的高度，例如 6cm，keepaspectratio 确保图片不失真
+        \includegraphics[height=6cm, width=2\textwidth, keepaspectratio]{4.1Pipe Installation.png}
         \caption{Pipe Installation}
     \end{minipage}
-    \hfill % 在两个图片之间填充弹性间距
-    % 右侧图片
-    \begin{minipage}[b]{0.48\textwidth}
+    \hfill 
+    % 第二张子图
+    \begin{minipage}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{4.2Exhaust Pipe Installation.png}
+        \includegraphics[height=6cm, width=2\textwidth, keepaspectratio]{4.2Exhaust Pipe Installation.png}
         \caption{Exhaust Pipe Installation}
-        \label{fig:exhaust_install} % 给第二张图打标签
+        \label{fig:exhaust_install}
     \end{minipage}
 \end{figure}
 
@@ -630,32 +633,27 @@ To ensure the safety of personnel and equipment, the power-off operation must fo
 
 % --- 流程 1: eBlockPCS ---
 \subsubsection*{A. Power-off Sequence for eBlockPCS}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Disconnect PCS AC side AC 690V circuit breaker. $\rightarrow$
-    \item Disconnect PCS DC side switch. $\rightarrow$
-    \item Disconnect PCS auxiliary power supply AC 220V circuit breaker.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.5\textwidth]{5.1Power-off Sequence for eBlockPCS.png}
+    \caption{Power-off Sequence for eBlockPCS}
+\end{figure}
 
 % --- 流程 2: eBlock ---
 \subsubsection*{B. eBlock Power-Off Sequence}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Disconnect PCS DC auxiliary power supply side switch. $\rightarrow$
-    \item Disconnect the Water-cooled unit circuit breaker.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5.2eBlock Power-Off Sequence.png}
+    \caption{eBlock Power-Off Sequence}
+\end{figure}
 
 % --- 流程 3: ESS Fire Suppression ---
 \subsubsection*{C. Power-off Sequence for Energy Storage Fire Suppression System}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Press the Fire Suppression Master Unit button. $\rightarrow$
-    \item Press the Wire Control Master Unit button. $\rightarrow$
-    \item Disconnect the Fire Suppression main circuit breaker.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5.3Power-off Sequence for Energy Storage Fire Suppression System.png}
+    \caption{Power-off Sequence for Energy Storage Fire Suppression System}
+\end{figure}
 
 \subsection{Equipment Energization Operation}
 
@@ -663,32 +661,27 @@ The energization process must be carried out in a strict sequence to prevent inr
 
 % --- 流程 1: eBlockPCS ---
 \subsubsection*{A. eBlockPCS Power-On Sequence}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Close the PCS auxiliary power supply AC 220V circuit breaker. $\rightarrow$
-    \item Close the PCS DC side switch. $\rightarrow$
-    \item Close the PCS AC side AC 690V circuit breaker.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5.4eBlockPCS Power-On Sequence.png}
+    \caption{eBlockPCS Power-On Sequence}
+\end{figure}
 
 % --- 流程 2: eBlock ---
 \subsubsection*{B. eBlock Power-On Sequence}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Close the Water-cooled unit circuit breaker. $\rightarrow$
-    \item Close the PCS DC auxiliary power supply side switch.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5.5eBlock Power-On Sequence.png}
+    \caption{eBlock Power-On Sequence}
+\end{figure}
 
 % --- 流程 3: Fire Protection ---
 \subsubsection*{C. Sequence of Power Supply for Energy Storage Fire Protection}
-\begin{enumerate}[label=\textsf{Step \arabic*:}, leftmargin=4em]
-    \item \textbf{Start}
-    \item Press the Fire Suppression Master Unit button. $\rightarrow$
-    \item Press the Wire Control Master Unit button. $\rightarrow$
-    \item Close the Fire Suppression main circuit breaker.
-    \item \textbf{End}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{5.6Sequence of Power Supply for Energy Storage Fire Protection.png}
+    \caption{Sequence of Power Supply for Energy Storage Fire Protection}
+\end{figure}
 
 % ==========================================
 % Chapter 8: Troubleshooting
@@ -766,20 +759,23 @@ The specific operation steps are shown in the figure below:
 During PCS handling, four people must work together. Use specially designed hooks—two long and two short—to lift the PCS. Place the PCS horizontally on the ground with the radiator side facing down. Use the short hooks to engage the mounting holes on the front side, and use the long hooks on the back side to secure the fins.
 \begin{figure}[H]
     \centering
-    % 左侧图片
-    \begin{minipage}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{6.2Front Layout of PCS.png}
-        \caption{Front Layout of PCS}
-    \end{minipage}
-    \hfill % 在两个图片之间填充弹性间距
-    % 右侧图片
-    \begin{minipage}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{6.3Backside Layout of the PCS.png}
-        \caption{Backside Layout of the PCS}
-        \label{fig:back_layout} % 给第二张图打标签
-    \end{minipage}
+    % 固定图片高度，确保两张图显示等高
+    \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}m{0.49\linewidth} @{} @ {\hspace{0.02\textwidth}} >{\centering\arraybackslash}m{0.49\linewidth} @{}}
+        
+        % 第一张图
+        \adjustbox{center}{
+            \includegraphics[width=\linewidth,height=4.5cm]{6.2Front Layout of PCS.png}
+        }
+        \captionof{figure}{Front Layout of PCS} % 注意这里改用 captionof
+        & 
+        % 第二张图
+        \adjustbox{center}{
+            \includegraphics[width=\linewidth,height=4.5cm]{6.3Backside Layout of the PCS.png}
+        }
+        \captionof{figure}{Backside Layout of the PCS}
+        \label{fig:back_layout}
+        
+    \end{tabularx}
 \end{figure}
 
 {\renewcommand\tabularxcolumn[1]{m{#1}}
@@ -831,7 +827,7 @@ When a cell failure or sampling line fault occurs and it becomes necessary to re
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{6.4Front view of the PACK battery pack.png}
+    \includegraphics[width=0.8\textwidth, height=5cm, keepaspectratio]{6.4Front view of the PACK battery pack.png}
     \caption{Front view of the PACK battery pack}
 \end{figure}
 
@@ -852,27 +848,37 @@ When an abnormality is detected in the cell or temperature sampling, and the deb
     \item Replace the BMUP board.
 \end{enumerate}
 
+% --- 图 6.5: 居中大图 ---
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{6.5PACK Front Panel Installation and Removal.png}
+    % 增加宽度至 0.8，作为章节引导图
+    \includegraphics[width=0.8\textwidth, height=5cm, keepaspectratio]{6.5PACK Front Panel Installation and Removal.png}
     \caption{PACK Front Panel Installation and Removal}
+    \label{fig:pack_panel}
 \end{figure}
+
+\vspace{1em} % 增加一点呼吸间距
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{6.6Removal of the BMUP Housing.png}
-    \caption{Removal of the BMUP Housing}
+    % 使用 m{宽度} 确保两列的中轴线对齐
+    \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}m{0.49\linewidth} @{\hspace{0.02\textwidth}} >{\centering\arraybackslash}m{0.49\linewidth} @{}}
+        
+        % --- 第一张图 ---
+        \includegraphics[width=\linewidth,height=4.5cm]{6.6Removal of the BMUP Housing.png}
+        \captionof{figure}{Removal of BMUP Housing}
+        & 
+        % --- 第二张图 ---
+        \includegraphics[width=\linewidth,height=4.5cm]{6.7BMUP Board Replacement.png}
+        \captionof{figure}{BMUP Board Replacement}
+        \label{fig:bmup_replacement}
+        
+    \end{tabularx}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{6.7BMUP Board Replacement.png}
-    \caption{BMUP Board Replacement}
-\end{figure}
-
 
 After the BMUP board has been replaced, proceed with the BMUP board ID setting and parameter modification.
 
+\clearpage
 % ==========================================
 % Chapter 9: Technical Support and Warranty Information
 % ==========================================
@@ -904,6 +910,7 @@ Under normal use, free repair or part replacement is provided for failures cause
 
 If warranty service is required, contact customer service first and provide detailed fault symptoms and equipment information. Preliminary remote troubleshooting will be performed. If on-site or return-to-factory service is required, follow the provided service instructions and prepare supporting documents (e.g., purchase receipt and product manual).
 
+\clearpage
 
 \section*{Appendix I: Inspection and Patrol Form}
 \addcontentsline{toc}{section}{Appendix I: Inspection and Patrol Form}
